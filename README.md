@@ -4,4 +4,5 @@ This repository contains the envirocaR R-Package and some additional functions (
 
 If you are further interested in our want to contribute to the project please contact us:
 jan.wirwahn@uni-muenster.de
+
 c_step03@uni-muenster.de
