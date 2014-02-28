@@ -1,3 +1,6 @@
+# Test script for enviroCar functions
+# By Christoph Stasch
+# Feb. 2014
 library(xts)
 serverUrl = "https://envirocar.org/api/stable"
 bbox = matrix(c(7.61,51.96,7.62,51.97),ncol=2,dimnames=list(c("x","y"),c("min","max")))

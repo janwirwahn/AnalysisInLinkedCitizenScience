@@ -199,11 +199,12 @@ aggregateTrack <- function(track,phen,interval,fn){
     remainder = interval*(groupCount-1)
     groupNr = 1
     
-    #create groups for aggregation according to interval length
+    #create groups for aggregation according to interval length and add column with group numbers
     for(i in 1:remainder){
       if (i!=1 && i%%interval == 1) {groupNr = groupNr + 1}
       tdf$Group[i] = groupNr
     }
+    #the remaining rows of the last group number 
     groupNr = groupCount
     for (j in (remainder+1):size){
       tdf$Group[j] = groupNr
@@ -213,6 +214,7 @@ aggregateTrack <- function(track,phen,interval,fn){
     #if no phenomenon was specified, aggregate over the whole track
     if (missing (fn)){fn = mean}
     if (missing (phen)){ 
+      #aggregation over the groups specified before
       aggrData = aggregate(tdf,list(tdf$Group),fn, rm.na=TRUE)
       #names(aggrData)[names(aggrData)=="Group.1"] <- "id"
       aggrData$id <- aggrData$Group-1
